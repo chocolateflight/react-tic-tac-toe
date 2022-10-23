@@ -2,18 +2,28 @@ import oIcon from '../assets/svg/icon-o-grey.svg';
 import xIcon from '../assets/svg/icon-x-grey.svg';
 import restartIcon from '../assets/svg/icon-restart.svg';
 
-const Settings = () => {
+type Props = {
+  menu: boolean;
+};
+
+const Settings = (props: Props) => {
   const x = <img src={xIcon} alt='icon' />;
   const o = <img src={oIcon} alt='icon' />;
   const restart = <img src={restartIcon} alt='icon' className='h-[15px] w-auto' />;
 
   return (
-    <div className='grid grid-cols-sm-user gap-x-[20px] h-[40px] w-full mb-[64px] md:grid-cols-md-user md:h-[48px]'>
+    <div
+      className={`grid ${
+        !props.menu ? 'grid-cols-sm-user md:grid-cols-md-user' : 'grid-cols-menu md:grid-cols-menu'
+      } grid-cols-sm-user gap-x-[20px] h-[40px] w-full mb-[64px] md:grid-cols-md-user md:h-[48px]`}
+    >
       <svg
         width='72'
         height='32'
         xmlns='http://www.w3.org/2000/svg'
-        className='col-span-1 col-start-1 col-end-2 self-center'
+        className={`${
+          !props.menu ? '' : 'justify-self-center'
+        } col-span-1 col-start-1 col-end-2 self-center`}
       >
         <g fill='none' fillRule='evenodd'>
           <path
@@ -29,7 +39,9 @@ const Settings = () => {
       </svg>
       <div
         id='turn-indicator'
-        className='w-[96px] h-full flex items-center justify-center space-x-2 px-[16px] bg-greenLight rounded-lg shadow-darkest col-span-1 col-start-2 col-end-3 md:w-[140px]'
+        className={`${
+          !props.menu ? '' : 'hidden'
+        } w-[96px] h-full flex items-center justify-center space-x-2 px-[16px] bg-greenLight rounded-lg shadow-darkest col-span-1 md:w-[140px]`}
       >
         <div id='icon' className='w-[16px] h-auto fill-greyDark'>
           {x} {/* make responsive */}
@@ -38,7 +50,9 @@ const Settings = () => {
       </div>
       <div
         id='restart'
-        className='w-[40px] h-full bg-greyDark rounded-lg shadow-lightest flex items-center justify-center col-span-1 col-start-3 col-end-4 justify-self-end hover:bg-greyLight md:w-[48px]'
+        className={`${
+          !props.menu ? '' : 'hidden'
+        } w-[40px] h-full bg-greyDark rounded-lg shadow-lightest flex items-center justify-center col-span-1 justify-self-end hover:bg-greyLight md:w-[48px]`}
       >
         {restart}
       </div>

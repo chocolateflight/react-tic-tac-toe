@@ -32,7 +32,7 @@ module.exports = {
       gridTemplateColumns: {
         'sm-user': '96px 96px 96px',
         'md-user': '140px 140px 140px',
-        'lg-user': '70% auto'
+        'menu': '1fr'
       },
       gridTemplateRows: {
         'sm-user': '',
@@ -41,7 +41,9 @@ module.exports = {
       },
       boxShadow: {
         'darkest': '0 4px 0px 0px rgb(16 33 42 / 0.25)',
-        'lightest': '0 4px 0px 0px rgb(107 137 151 / 0.25)'
+        'lightest': '0 4px 0px 0px rgb(107 137 151 / 0.25)',
+        'blue': '0 4px 0px 0px rgb(17 140 135 / 0.25)',
+        'orange': '0 4px 0px 0px rgb(207 139 19 / 0.25)',
       }
     },
   },

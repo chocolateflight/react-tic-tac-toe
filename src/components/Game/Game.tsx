@@ -6,17 +6,23 @@ import oIcon from '../../assets/svg/icon-o.svg';
 
 const Fragment = (React as any).Fragment;
 
+type Props = {
+  menu: boolean;
+};
+
 const x = <img src={xIcon} alt='icon' />;
 const o = <img src={oIcon} alt='icon' />;
 const xOut = <img src={xIconOutline} alt='icon' />;
 const oOut = <img src={oIconOutline} alt='icon' />;
 
-const Game = () => {
+const Game = (props: Props) => {
   return (
     <Fragment>
       <div
         id='game-container'
-        className='grid grid-cols-sm-user grid-rows-3 w-[full] gap-x-[20px] gap-y-[24px] md:grid-cols-md-user'
+        className={`${
+          !props.menu ? '' : 'hidden'
+        } grid grid-cols-sm-user grid-rows-3 w-[full] gap-x-[20px] gap-y-[24px] md:grid-cols-md-user`}
       >
         <div className='w-[96px] h-[96px] flex justify-center items-center bg-greenLight col-span-1 rounded-lg shadow-darkest px-[28px] py-[24px] md:h-[140px] md:w-[140px]'>
           {x}
@@ -48,7 +54,9 @@ const Game = () => {
       </div>
       <div
         id='stats'
-        className='grid grid-cols-sm-user gap-x-[20px] h-[64px] w-full mb-[48px] mt-[20px] md:h-[72px] md:grid-cols-md-user'
+        className={`${
+          !props.menu ? '' : 'hidden'
+        } grid grid-cols-sm-user gap-x-[20px] h-[64px] w-full mb-[48px] mt-[20px] md:h-[72px] md:grid-cols-md-user`}
       >
         <div
           id='my-win'
