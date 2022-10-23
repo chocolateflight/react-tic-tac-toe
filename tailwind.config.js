@@ -26,7 +26,7 @@ module.exports = {
       'greenDark': '#1A2A33',
       'greenLight': '#1F3641',
       'greyDark': '#A8BFC9',
-      'greyLight': '#DBE8ED'
+      'greyLight': '#DBE8ED',
     },
     extend: {
       gridTemplateColumns: {
