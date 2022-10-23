@@ -10,7 +10,10 @@ module.exports = {
       lg: '1024px',
     },
     fontSize: {
-      xl: '2rem',
+      l: '40px',
+      m: '24px',
+      s: '20px',
+      xs: '16px',
     },
     fontFamily: {
       sans: ['Outfit']
@@ -25,7 +28,22 @@ module.exports = {
       'greyDark': '#A8BFC9',
       'greyLight': '#DBE8ED'
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'sm-user': '96px 96px 96px',
+        'md-user': '140px 140px 140px',
+        'lg-user': '70% auto'
+      },
+      gridTemplateRows: {
+        'sm-user': '',
+        'md-user': '',
+        'lg-user': ''
+      },
+      boxShadow: {
+        'darkest': '0 4px 0px 0px rgb(16 33 42 / 0.25)',
+        'lightest': '0 4px 0px 0px rgb(107 137 151 / 0.25)'
+      }
+    },
   },
   plugins: [],
 }
