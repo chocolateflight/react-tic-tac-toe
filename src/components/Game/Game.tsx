@@ -1,5 +1,5 @@
-import React from 'react';
-import Field from './Field';
+import React, { useState } from 'react';
+import Fields from './Fields';
 import Stats from './Stats';
 
 const Fragment = (React as any).Fragment;
@@ -9,6 +9,10 @@ type Props = {
 };
 
 const Game = (props: Props) => {
+  const [currentPlayer, setCurrentPlayer] = useState("x")
+
+
+
   return (
     <Fragment>
       <div
@@ -17,15 +21,7 @@ const Game = (props: Props) => {
           !props.menu ? '' : 'hidden'
         } grid grid-cols-sm-user grid-rows-3 w-[full] gap-x-[20px] gap-y-[24px] md:grid-cols-md-user`}
       >
-        <Field />
-        <Field />
-        <Field />
-        <Field />
-        <Field />
-        <Field />
-        <Field />
-        <Field />
-        <Field />
+        <Fields currentPlayer={currentPlayer}  />
       </div>
       <Stats menu={props.menu} />
     </Fragment>
