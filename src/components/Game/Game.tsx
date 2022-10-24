@@ -6,7 +6,7 @@ const Fragment = (React as any).Fragment;
 
 type Props = {
   menu: boolean;
-  updateWinner: any;
+  updateWinner: (A:string)=>void;
   currentPlayer: string;
 };
 

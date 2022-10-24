@@ -14,7 +14,7 @@ const Fragment = (React as any).Fragment;
 type Props = {
   currentPlayer: string;
   dataString: Array<string>;
-  updateData: any;
+  updateData: (A:Array<string>)=>void;
 };
 
 const Fields = (props: Props): JSX.Element => {
