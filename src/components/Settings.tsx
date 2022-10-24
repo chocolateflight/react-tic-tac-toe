@@ -14,7 +14,7 @@ const Settings = (props: Props) => {
   return (
     <div
       className={`grid ${
-        !props.menu ? 'grid-cols-sm-user md:grid-cols-md-user' : 'grid-cols-menu md:grid-cols-menu'
+        props.menu ? 'grid-cols-sm-user md:grid-cols-md-user' : 'grid-cols-menu md:grid-cols-menu'
       } grid-cols-sm-user gap-x-[20px] h-[40px] w-full mb-[64px] md:grid-cols-md-user md:h-[48px]`}
     >
       <svg
@@ -22,7 +22,7 @@ const Settings = (props: Props) => {
         height='32'
         xmlns='http://www.w3.org/2000/svg'
         className={`${
-          !props.menu ? '' : 'justify-self-center'
+          props.menu ? '' : 'justify-self-center'
         } col-span-1 col-start-1 col-end-2 self-center`}
       >
         <g fill='none' fillRule='evenodd'>
@@ -40,8 +40,8 @@ const Settings = (props: Props) => {
       <div
         id='turn-indicator'
         className={`${
-          !props.menu ? '' : 'hidden'
-        } w-[96px] h-full flex items-center justify-center space-x-2 px-[16px] bg-greenLight rounded-lg shadow-darkest col-span-1 md:w-[140px]`}
+          props.menu ? '' : 'hidden'
+        } select-none w-[96px] h-full flex items-center justify-center space-x-2 px-[16px] bg-greenLight rounded-lg shadow-darkest col-span-1 md:w-[140px]`}
       >
         <div id='icon' className='w-[16px] h-auto fill-greyDark'>
           {x} {/* make responsive */}
@@ -51,7 +51,7 @@ const Settings = (props: Props) => {
       <div
         id='restart'
         className={`${
-          !props.menu ? '' : 'hidden'
+          props.menu ? '' : 'hidden'
         } w-[40px] h-full bg-greyDark rounded-lg shadow-lightest flex items-center justify-center col-span-1 justify-self-end hover:bg-greyLight md:w-[48px]`}
       >
         {restart}

@@ -4,10 +4,10 @@ import oIconOutline from '../../assets/svg/icon-o-outline.svg';
 import xIcon from '../../assets/svg/icon-x.svg';
 import oIcon from '../../assets/svg/icon-o.svg';
 
-const x = `<img draggable='false' className="pointer-events-none" src=${xIcon} alt='icon' />`;
-const o = `<img draggable='false' className="pointer-events-none" src=${oIcon} alt='icon' />`;
-const xOut = `<img id="outImg" draggable='false' className="pointer-events-none" src=${xIconOutline} alt='icon' />`;
-const oOut = `<img id="outImg" draggable='false' className="pointer-events-none" src=${oIconOutline} alt='icon' />`;
+const x = `<img draggable='false' className="select-none pointer-events-none" src=${xIcon} alt='icon' />`;
+const o = `<img draggable='false' className="select-none pointer-events-none" src=${oIcon} alt='icon' />`;
+const xOut = `<img id="outImg" draggable='false' className="select-none pointer-events-none" src=${xIconOutline} alt='icon' />`;
+const oOut = `<img id="outImg" draggable='false' className="select-none pointer-events-none" src=${oIconOutline} alt='icon' />`;
 
 const Fragment = (React as any).Fragment;
 

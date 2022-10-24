@@ -12,8 +12,8 @@ const Stats = (props: Props) => {
       <div
         id='stats'
         className={`${
-          !props.menu ? '' : 'hidden'
-        } grid grid-cols-sm-user gap-x-[20px] h-[64px] w-full mb-[48px] mt-[20px] md:h-[72px] md:grid-cols-md-user`}
+          props.menu ? '' : 'hidden'
+        } select-none grid grid-cols-sm-user gap-x-[20px] h-[64px] w-full mb-[48px] mt-[20px] md:h-[72px] md:grid-cols-md-user`}
       >
         <div
           id='my-win'
