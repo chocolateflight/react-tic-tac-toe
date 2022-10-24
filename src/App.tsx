@@ -8,12 +8,13 @@ import Settings from './components/Settings';
 function App() {
   const [winner, setWinner] = useState<string>();
   const [currentPlayer, setCurrentPlayer] = useState('x');
+  const [gameStarted, setGameStarted] = useState(false)
 
   const updateWinner = (enteredWinner:string) => {
     setWinner(enteredWinner)
   }
 
-  const menu = false; {/* Change later */}
+  const menu = gameStarted; {/* Change later */}
   const selected = "o"; {/* Change later */}
   const modal = ""; {/* Change later */}
 

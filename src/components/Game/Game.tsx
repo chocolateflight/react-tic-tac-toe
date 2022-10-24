@@ -48,7 +48,7 @@ const Game = (props: Props) => {
       <div
         id='game-container'
         className={`${
-          !props.menu ? '' : 'hidden'
+          !props.menu ? 'hidden' : ''
         } grid grid-cols-sm-user grid-rows-3 w-[full] gap-x-[20px] gap-y-[24px] md:grid-cols-md-user`}
       >
         <Fields

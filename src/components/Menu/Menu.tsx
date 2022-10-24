@@ -31,7 +31,7 @@ const Menu = (props: Props) => {
   );
 
   return (
-    <div className={`${props.menu ? '' : 'hidden'} md:text-xs`}>
+    <div className={`${props.menu ? 'hidden' : ''} md:text-xs`}>
       <div
         id='pick-player'
         className={`flex flex-col gap-y-[24px] justify-center items-center h-[192px] w-full bg-greenLight rounded-lg shadow-darkest px-[24px] mb-[32px]`}
