@@ -6,8 +6,8 @@ type Props = {
 };
 
 const ModalEnd = (props: Props) => {
-  const x = <img src={xIcon} alt='icon' className='h-[28px]' />;
-  const o = <img src={oIcon} alt='icon' className='h-[28px]' />;
+  const x = <img draggable="false" src={xIcon} alt='icon' className='h-[28px]' />;
+  const o = <img draggable="false" src={oIcon} alt='icon' className='h-[28px]' />;
 
   return (
     <div

@@ -11,16 +11,22 @@ type Props = {
 const Menu = (props: Props) => {
   const x = (
     <img
-      src={props.selected === "x" ? xIconGrey : xIconGreen}
+      src={props.selected === 'x' ? xIconGrey : xIconGreen}
+      draggable='false'
       alt='icon'
-      className={`${props.selected === "x" ? "" : "bg-greyDark w-full object-contain rounded-lg"} h-[56px] self-center justify-self-center py-[12px]`}
+      className={`${
+        props.selected === 'x' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
+      } h-[56px] self-center justify-self-center py-[12px]`}
     />
   );
   const o = (
     <img
-      src={props.selected === "o" ? oIconGrey : oIconGreen}
+      src={props.selected === 'o' ? oIconGrey : oIconGreen}
+      draggable='false'
       alt='icon'
-      className={`${props.selected === "o" ? "" : "bg-greyDark w-full object-contain rounded-lg"} h-[56px] self-center justify-self-center py-[12px]`}
+      className={`${
+        props.selected === 'o' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
+      } h-[56px] self-center justify-self-center py-[12px]`}
     />
   );
 
