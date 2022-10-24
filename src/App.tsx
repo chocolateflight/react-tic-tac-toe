@@ -14,8 +14,11 @@ function App() {
     setWinner(enteredWinner)
   }
 
+  const updatePlayer = (enteredPlayer:string) => {
+    setCurrentPlayer(enteredPlayer)
+  }
+
   const menu = gameStarted; {/* Change later */}
-  const selected = "o"; {/* Change later */}
   const modal = ""; {/* Change later */}
 
   return (
@@ -24,7 +27,7 @@ function App() {
       <ModalReset modal={modal} />
       <div className='w-[328px] md:w-[470px]'>
         <Settings menu={menu} />
-        <Menu menu={menu} selected={selected}/>
+        <Menu menu={menu} updatePlayer={updatePlayer}/>
         <Game menu={menu} updateWinner={updateWinner} currentPlayer={currentPlayer} />
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import oIconGrey from '../../assets/svg/icon-o-grey.svg';
 import xIconGrey from '../../assets/svg/icon-x-grey.svg';
 import oIconGreen from '../../assets/svg/icon-o-green.svg';
@@ -5,28 +6,40 @@ import xIconGreen from '../../assets/svg/icon-x-green.svg';
 
 type Props = {
   menu: boolean;
-  selected: string;
+  updatePlayer: (A: string) => void;
 };
 
 const Menu = (props: Props) => {
+  const [selectedPlayer, setSelectedPlayer] = useState('x');
+
+  const playerSelectionHandler = (event: React.MouseEvent) => {
+    const target = event.target as HTMLElement;
+    props.updatePlayer(target.id);
+    setSelectedPlayer(target.id);
+  };
+
   const x = (
     <img
-      src={props.selected === 'x' ? xIconGrey : xIconGreen}
+      id='x'
+      src={selectedPlayer === 'o' ? xIconGrey : xIconGreen}
       draggable='false'
       alt='icon'
       className={`${
-        props.selected === 'x' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
+        selectedPlayer === 'o' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
       } h-[56px] self-center justify-self-center py-[12px]`}
+      onClick={playerSelectionHandler}
     />
   );
   const o = (
     <img
-      src={props.selected === 'o' ? oIconGrey : oIconGreen}
+      id='o'
+      src={selectedPlayer === 'x' ? oIconGrey : oIconGreen}
       draggable='false'
       alt='icon'
       className={`${
-        props.selected === 'o' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
+        selectedPlayer === 'x' ? '' : 'bg-greyDark w-full object-contain rounded-lg'
       } h-[56px] self-center justify-self-center py-[12px]`}
+      onClick={playerSelectionHandler}
     />
   );
 
