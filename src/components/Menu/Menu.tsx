@@ -75,7 +75,7 @@ const Menu = (props: Props) => {
         className='select-none w-[full] h-[56px] bg-orangeDark rounded-xl flex justify-center items-center text-greenDark shadow-orange hover:bg-orangeLight'
         onClick={newCPUGameHandler}
       >
-        <span className='uppercase'>New Game (VS CPU)</span>
+        <span className='uppercase'>New Game (VS CPU) INOP</span>
       </div>
       <div
         id='new-game-vs-player'

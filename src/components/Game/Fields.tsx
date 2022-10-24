@@ -15,6 +15,8 @@ type Props = {
   currentPlayer: string;
   dataString: Array<string>;
   updateData: (A:Array<string>)=>void;
+  updatePlayer: (A:string) => void;
+  gameMode: string;
 };
 
 const Fields = (props: Props): JSX.Element => {
@@ -26,6 +28,13 @@ const Fields = (props: Props): JSX.Element => {
       data[+target.id] = props.currentPlayer;
       target.innerHTML = `${props.currentPlayer === 'x' ? x : o}`;
       props.updateData(data);
+    }
+    if (props.gameMode === "pvp") {
+      if (props.currentPlayer === "x") {
+        props.updatePlayer("o");
+      } else if (props.currentPlayer === "o") {
+        props.updatePlayer("x")
+      }
     }
   };
 

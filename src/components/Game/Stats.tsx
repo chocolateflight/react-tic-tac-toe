@@ -4,6 +4,7 @@ const Fragment = (React as any).Fragment;
 
 type Props = {
   menu: boolean;
+  gameMode: string;
 };
 
 const Stats = (props: Props) => {

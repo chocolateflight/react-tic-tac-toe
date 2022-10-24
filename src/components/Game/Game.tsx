@@ -5,9 +5,11 @@ import Stats from './Stats';
 const Fragment = (React as any).Fragment;
 
 type Props = {
-  menu: boolean;
+  gameStart: boolean;
+  gameMode: string;
   updateWinner: (A: string) => void;
   currentPlayer: string;
+  updatePlayer: (A: string) => void;
   updateData: (A: Array<string>) => void;
   currentData: Array<string>;
 };
@@ -22,6 +24,12 @@ const Game = (props: Props) => {
   const updateWinner = (enteredWinner: string) => {
     props.updateWinner(enteredWinner);
   };
+
+  const updatePlayer = (enteredPlayer: string) => {
+    props.updatePlayer(enteredPlayer);
+  };
+
+  // while no winner - start, then round end modal
 
   useEffect(() => {
     if (data[0] === data[1] && data[0] === data[2] && data[0] !== '') {
@@ -50,16 +58,18 @@ const Game = (props: Props) => {
       <div
         id='game-container'
         className={`${
-          !props.menu ? 'hidden' : ''
+          !props.gameStart ? 'hidden' : ''
         } grid grid-cols-sm-user grid-rows-3 w-[full] gap-x-[20px] gap-y-[24px] md:grid-cols-md-user`}
       >
         <Fields
           currentPlayer={props.currentPlayer}
           dataString={data}
           updateData={updateData}
+          updatePlayer={updatePlayer}
+          gameMode={props.gameMode}
         />
       </div>
-      <Stats menu={props.menu} />
+      <Stats menu={props.gameStart} gameMode={props.gameMode} />
     </Fragment>
   );
 };
