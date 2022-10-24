@@ -7,9 +7,9 @@ type Props = {
 };
 
 const Settings = (props: Props) => {
-  const x = <img src={xIcon} alt='icon' />;
-  const o = <img src={oIcon} alt='icon' />;
-  const restart = <img src={restartIcon} alt='icon' className='h-[15px] w-auto' />;
+  const x = <img draggable="false" src={xIcon} alt='icon' />;
+  const o = <img draggable="false" src={oIcon} alt='icon' />;
+  const restart = <img draggable="false" src={restartIcon} alt='icon' className='h-[15px] w-auto' />;
 
   return (
     <div
