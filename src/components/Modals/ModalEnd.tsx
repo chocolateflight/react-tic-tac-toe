@@ -2,7 +2,7 @@ import xIcon from '../../assets/svg/icon-x.svg';
 import oIcon from '../../assets/svg/icon-o.svg';
 
 type Props = {
-  modal: string;
+  modal: boolean;
 };
 
 const ModalEnd = (props: Props) => {
@@ -12,7 +12,7 @@ const ModalEnd = (props: Props) => {
   return (
     <div
       className={`${
-        props.modal === 'end' ? '' : 'hidden'
+        props.modal ? '' : 'hidden'
       } absolute w-full h-full backdrop-brightness-50 flex justify-center items-center`}
     >
       <div className='bg-greenLight h-[228px] w-full flex flex-col justify-around items-center py-[44px] md:h-[266px]'>

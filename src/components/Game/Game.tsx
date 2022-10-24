@@ -6,15 +6,17 @@ const Fragment = (React as any).Fragment;
 
 type Props = {
   menu: boolean;
-  updateWinner: (A:string)=>void;
+  updateWinner: (A: string) => void;
   currentPlayer: string;
+  updateData: (A: Array<string>) => void;
+  currentData: Array<string>;
 };
 
 const Game = (props: Props) => {
-  const [data, setData] = useState(['', '', '', '', '', '', '', '', '']);
+  const data = props.currentData;
 
   const updateData = (enteredData: Array<string>) => {
-    setData([...enteredData]);
+    props.updateData([...enteredData]);
   };
 
   const updateWinner = (enteredWinner: string) => {

@@ -4,12 +4,17 @@ import restartIcon from '../assets/svg/icon-restart.svg';
 
 type Props = {
   menu: boolean;
+  restart: () => void;
 };
 
 const Settings = (props: Props) => {
   const x = <img draggable="false" src={xIcon} alt='icon' />;
   const o = <img draggable="false" src={oIcon} alt='icon' />;
   const restart = <img draggable="false" src={restartIcon} alt='icon' className='h-[15px] w-auto' />;
+
+  const restartHandler = () => {
+    props.restart()
+  }
 
   return (
     <div
@@ -53,6 +58,7 @@ const Settings = (props: Props) => {
         className={`${
           props.menu ? '' : 'hidden'
         } w-[40px] h-full bg-greyDark rounded-lg shadow-lightest flex items-center justify-center col-span-1 justify-self-end hover:bg-greyLight md:w-[48px]`}
+        onClick={restartHandler}
       >
         {restart}
       </div>
