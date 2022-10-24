@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Game from './components/Game/Game';
 import Menu from './components/Menu/Menu';
 import ModalEnd from './components/Modals/ModalEnd';
@@ -5,6 +6,12 @@ import ModalReset from './components/Modals/ModalReset';
 import Settings from './components/Settings';
 
 function App() {
+  const [winner, setWinner] = useState<string>();
+  const [currentPlayer, setCurrentPlayer] = useState('x');
+
+  const updateWinner = (enteredWinner:string) => {
+    setWinner(enteredWinner)
+  }
 
   const menu = false; {/* Change later */}
   const selected = "o"; {/* Change later */}
@@ -17,7 +24,7 @@ function App() {
       <div className='w-[328px] md:w-[470px]'>
         <Settings menu={menu} />
         <Menu menu={menu} selected={selected}/>
-        <Game menu={menu} />
+        <Game menu={menu} updateWinner={updateWinner} currentPlayer={currentPlayer} />
       </div>
     </div>
   );
