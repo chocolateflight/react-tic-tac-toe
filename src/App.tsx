@@ -6,9 +6,10 @@ import ModalReset from './components/Modals/ModalReset';
 import Settings from './components/Settings';
 
 function App() {
-  const [winner, setWinner] = useState<string>();
-  const [currentPlayer, setCurrentPlayer] = useState('x');
-  const [gameStarted, setGameStarted] = useState(false)
+  const [winner, setWinner] = useState<string>(); // x or o
+  const [currentPlayer, setCurrentPlayer] = useState<string>('x'); // x or o
+  const [gameStarted, setGameStarted] = useState<boolean>(false); // true or false
+  const [gameMode, setGameMode] = useState<string>('pvp'); // pvp or cpu
 
   const updateWinner = (enteredWinner:string) => {
     setWinner(enteredWinner)
@@ -16,6 +17,14 @@ function App() {
 
   const updatePlayer = (enteredPlayer:string) => {
     setCurrentPlayer(enteredPlayer)
+  }
+
+  const updateGameStarted = () => {
+    setGameStarted(!gameStarted)
+  }
+
+  const updateGameMode = (enteredGameMode:string) => {
+    setGameMode(enteredGameMode)
   }
 
   const menu = gameStarted; {/* Change later */}
@@ -27,7 +36,7 @@ function App() {
       <ModalReset modal={modal} />
       <div className='w-[328px] md:w-[470px]'>
         <Settings menu={menu} />
-        <Menu menu={menu} updatePlayer={updatePlayer}/>
+        <Menu menu={menu} updatePlayer={updatePlayer} startGame={updateGameStarted} setGameMode={updateGameMode}/>
         <Game menu={menu} updateWinner={updateWinner} currentPlayer={currentPlayer} />
       </div>
     </div>
