@@ -4,20 +4,21 @@ import oIcon from '../../assets/svg/icon-o.svg';
 type Props = {
   modal: boolean;
   winner: string;
-  restartGame: () => void
+  restartGame: () => void;
+  nextRound: () => void;
 };
 
 const ModalEnd = (props: Props) => {
-  const x = <img draggable="false" src={xIcon} alt='icon' className='h-[28px]' />;
-  const o = <img draggable="false" src={oIcon} alt='icon' className='h-[28px]' />;
+  const x = <img draggable='false' src={xIcon} alt='icon' className='h-[28px]' />;
+  const o = <img draggable='false' src={oIcon} alt='icon' className='h-[28px]' />;
 
   const quitHandler = () => {
-    props.restartGame()
-  }
+    props.restartGame();
+  };
 
   const nextRoundHandler = () => {
-
-  }
+    props.nextRound();
+  };
 
   return (
     <div
@@ -26,10 +27,23 @@ const ModalEnd = (props: Props) => {
       } select-none absolute w-full h-full backdrop-brightness-50 flex justify-center items-center`}
     >
       <div className='bg-greenLight h-[228px] w-full flex flex-col justify-around items-center py-[44px] md:h-[266px]'>
-        <span id='win-message'>PLAYER 2 WINS!</span> {/* Make dynamic */}
+        <span id='win-message'>
+          {props.winner === 'tie' ? "IT'S A TIE" : 'WE HAVE A WINNER'}
+        </span>
+        {/* Make dynamic */}
         <div id='takes-round' className='flex items-center gap-x-2'>
-          {x}
-          <span className='text-m md:text-l'>TAKES THE ROUND</span>{' '}
+          {props.winner === 'x' ? x : props.winner === 'o' ? o : ''}
+          <span
+            className={`text-m md:text-l ${
+              props.winner === 'x'
+                ? 'text-blueDark'
+                : props.winner === 'o'
+                ? 'text-orangeDark'
+                : ''
+            }`}
+          >
+            {props.winner === 'tie' ? 'Nobody wins or looses!' : 'TAKES THE ROUND'}
+          </span>
           {/* Change color when dynamic */}
         </div>
         <div

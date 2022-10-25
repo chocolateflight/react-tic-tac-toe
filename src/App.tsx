@@ -6,8 +6,9 @@ import ModalReset from './components/Modals/ModalReset';
 import Settings from './components/Settings';
 
 function App() {
-  const [winner, setWinner] = useState<string>(""); // x or o
+  const [winner, setWinner] = useState<string>(''); // x or o
   const [currentPlayer, setCurrentPlayer] = useState<string>('x'); // x or o
+  const [selectedPlayer1, setSelectedPlayer1] = useState<string>('x'); //x or o
   const [gameStarted, setGameStarted] = useState<boolean>(false); // true or false
   const [gameMode, setGameMode] = useState<string>('pvp'); // pvp or cpu
   const [showRestartModal, setShowRestartModal] = useState<boolean>(false); // true false
@@ -27,12 +28,12 @@ function App() {
   };
 
   const openEndModal = () => {
-    setShowEndModal(true)
-  }
+    setShowEndModal(true);
+  };
 
   const closeEndModal = () => {
-    setShowEndModal(false)
-  }
+    setShowEndModal(false);
+  };
 
   const restartHandler = () => {
     const divs = document.getElementsByClassName('inputfield');
@@ -41,10 +42,11 @@ function App() {
     }
     setData(['', '', '', '', '', '', '', '', '']);
     setShowRestartModal(false);
-    setShowEndModal(false)
-    setGameStarted(false)
-    setWinner("")
-    setGameMode("")
+    setShowEndModal(false);
+    setGameStarted(false);
+    setWinner('end');
+    setGameMode('');
+    setCurrentPlayer('x');
   };
 
   const updateWinner = (enteredWinner: string) => {
@@ -55,6 +57,10 @@ function App() {
     setCurrentPlayer(enteredPlayer);
   };
 
+  const updatePlayer1 = (enteredPlayer1: string) => {
+    setSelectedPlayer1(enteredPlayer1);
+  };
+
   const updateGameStarted = () => {
     setGameStarted(true);
   };
@@ -63,29 +69,40 @@ function App() {
     setGameMode(enteredGameMode);
   };
 
+  const nextRoundHandler = () => {};
+
   useEffect(() => {
-    if (winner === "x") {
-      openEndModal()
-    } else if (winner === "o") {
-      openEndModal()
-    } else if (winner === "tie") {
-      openEndModal()
+    if (winner === 'x') {
+      openEndModal();
+    } else if (winner === 'o') {
+      openEndModal();
+    } else if (winner === 'tie') {
+      openEndModal();
     }
-  }, [winner])
+  }, [winner]);
 
   return (
     <div className='bg-greenDark flex flex-col justify-center items-center h-screen text-greyDark'>
-      <ModalEnd modal={showEndModal} winner={winner} restartGame={restartHandler}/>
+      <ModalEnd
+        modal={showEndModal}
+        winner={winner}
+        restartGame={restartHandler}
+        nextRound={nextRoundHandler}
+      />
       <ModalReset
         modal={showRestartModal}
         closeModal={closeRestartModal}
         restartGame={restartHandler}
       />
       <div className='w-[328px] md:w-[470px]'>
-        <Settings menu={gameStarted} restart={openRestartModal} />
+        <Settings
+          menu={gameStarted}
+          restart={openRestartModal}
+          currentPlayer={currentPlayer}
+        />
         <Menu
           menu={gameStarted}
-          updatePlayer={updatePlayer}
+          updatePlayer={updatePlayer1}
           startGame={updateGameStarted}
           setGameMode={updateGameMode}
         />
@@ -94,9 +111,11 @@ function App() {
           gameMode={gameMode}
           updateWinner={updateWinner}
           currentPlayer={currentPlayer}
+          playerOne={selectedPlayer1}
           updatePlayer={updatePlayer}
           updateData={updateDataHandler}
           currentData={data}
+          roundWinner={winner}
         />
       </div>
     </div>

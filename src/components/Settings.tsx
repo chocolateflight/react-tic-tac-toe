@@ -5,6 +5,7 @@ import restartIcon from '../assets/svg/icon-restart.svg';
 type Props = {
   menu: boolean;
   restart: () => void;
+  currentPlayer: string;
 };
 
 const Settings = (props: Props) => {
@@ -49,7 +50,7 @@ const Settings = (props: Props) => {
         } select-none w-[96px] h-full flex items-center justify-center space-x-2 px-[16px] bg-greenLight rounded-lg shadow-darkest col-span-1 md:w-[140px]`}
       >
         <div id='icon' className='w-[16px] h-auto fill-greyDark'>
-          {x} {/* make responsive */}
+          {props.currentPlayer === "x" ? x : o}
         </div>
         <span>TURN</span>
       </div>
