@@ -114,7 +114,7 @@ return (
 
 ### Continued development
 
-I have the impression that I have used far too many useStates in this project. I want to learn how to avoid this by perhaps using more advanced React features. 
+I have the impression that I have used far too many useStates in this project. I want to learn how to avoid this by perhaps using more advanced React features. My goal with this project was to learn more about how React and Typescript work together. In future projects, I want to pay more attention to scalability (e.g. building a better version of the logic to determine the winner) as well as making some aspects of the code more readable. 
 
 ### Useful resources
 
