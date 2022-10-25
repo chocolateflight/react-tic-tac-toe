@@ -10,11 +10,10 @@ type Props = {
   updateWinner: (A: string) => void;
   roundWinner: string;
   currentPlayer: string;
-  playerOne: string
+  playerOne: string;
   updatePlayer: (A: string) => void;
   updateData: (A: Array<string>) => void;
   currentData: Array<string>;
-
 };
 
 const Game = (props: Props) => {
@@ -72,7 +71,12 @@ const Game = (props: Props) => {
           gameMode={props.gameMode}
         />
       </div>
-      <Stats menu={props.gameStart} gameMode={props.gameMode} roundWinner={props.roundWinner} playerOne={props.playerOne}/>
+      <Stats
+        menu={props.gameStart}
+        gameMode={props.gameMode}
+        roundWinner={props.roundWinner}
+        playerOne={props.playerOne}
+      />
     </Fragment>
   );
 };

@@ -12,7 +12,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState<boolean>(false); // true or false
   const [gameMode, setGameMode] = useState<string>('pvp'); // pvp or cpu
   const [showRestartModal, setShowRestartModal] = useState<boolean>(false); // true false
-  const [showEndModal, setShowEndModal] = useState<boolean>(true); // true false
+  const [showEndModal, setShowEndModal] = useState<boolean>(false); // true false
   const [data, setData] = useState(['', '', '', '', '', '', '', '', '']);
 
   const updateDataHandler = (enteredData: Array<string>) => {
@@ -41,8 +41,8 @@ function App() {
       divs[i].innerHTML = '';
     }
     setData(['', '', '', '', '', '', '', '', '']);
-    setShowRestartModal(false);
-    setShowEndModal(false);
+    closeRestartModal();
+    closeEndModal();
     setGameStarted(false);
     setWinner('end');
     setGameMode('');
@@ -69,7 +69,15 @@ function App() {
     setGameMode(enteredGameMode);
   };
 
-  const nextRoundHandler = () => {};
+  const nextRoundHandler = () => {
+    const divs = document.getElementsByClassName('inputfield');
+    for (let i = 0; i < divs.length; i++) {
+      divs[i].innerHTML = '';
+    }
+    closeEndModal();
+    setWinner('next');
+    setData(['', '', '', '', '', '', '', '', '']);
+  };
 
   useEffect(() => {
     if (winner === 'x') {

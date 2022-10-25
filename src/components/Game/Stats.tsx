@@ -41,7 +41,7 @@ const Stats = (props: Props) => {
           className='w-[96px] h-full rounded-lg flex flex-col justify-center items-center bg-blueDark md:w-[140px]'
         >
           <span className='text-greenDark'>{`X (${
-            props.playerOne === 'x' ? 'You' : 'Player 2'
+            props.playerOne === 'x' ? 'Player 1' : 'Player 2'
           })`}</span>{' '}
           {/* Make dynamic */}
           <span className='text-greenDark text-s'>{winPlayer1}</span> {/*Make dynamic*/}
@@ -58,9 +58,9 @@ const Stats = (props: Props) => {
           className='w-[96px] h-full rounded-lg flex flex-col justify-center items-center bg-orangeDark md:w-[140px]'
         >
           <span className='text-greenDark'>{`O (${
-            props.playerOne === 'o' ? 'You' : 'Player 2'
+            props.playerOne === 'o' ? 'Player 1' : 'Player 2'
           })`}</span>
-          <span className='text-greenDark text-s'>{winPlayer1}</span> {/*Make dynamic*/}
+          <span className='text-greenDark text-s'>{winPlayer2}</span> {/*Make dynamic*/}
         </div>
       </div>
     </Fragment>

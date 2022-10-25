@@ -8,7 +8,7 @@ type Props = {
   menu: boolean;
   updatePlayer: (A: string) => void;
   startGame: () => void;
-  setGameMode: (A:string) => void;
+  setGameMode: (A: string) => void;
 };
 
 const Menu = (props: Props) => {
@@ -19,15 +19,15 @@ const Menu = (props: Props) => {
     props.updatePlayer(target.id);
     setSelectedPlayer(target.id);
   };
-  
+
   const newPVPGameHandler = () => {
-    props.setGameMode("pvp")
-    props.startGame()
-  }
+    props.setGameMode('pvp');
+    props.startGame();
+  };
 
   const newCPUGameHandler = () => {
-    return
-  }
+    return;
+  };
 
   const x = (
     <img
@@ -70,13 +70,14 @@ const Menu = (props: Props) => {
         </div>
         <span className='select-none'>REMEMBER: X GOES FIRST</span>
       </div>
-      <div
+      {/* CPU MIGHT BE ADDED LATER */}
+      {/* <div
         id='new-game-vs-CPU'
         className='select-none w-[full] h-[56px] bg-orangeDark rounded-xl flex justify-center items-center text-greenDark shadow-orange hover:bg-orangeLight'
         onClick={newCPUGameHandler}
       >
         <span className='uppercase'>New Game (VS CPU) INOP</span>
-      </div>
+      </div> */}
       <div
         id='new-game-vs-player'
         className='select-none w-[full] h-[56px] bg-blueDark rounded-xl flex justify-center items-center text-greenDark shadow-blue mt-[16px] hover:bg-blueLight'

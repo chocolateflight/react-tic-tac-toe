@@ -30,7 +30,6 @@ const ModalEnd = (props: Props) => {
         <span id='win-message'>
           {props.winner === 'tie' ? "IT'S A TIE" : 'WE HAVE A WINNER'}
         </span>
-        {/* Make dynamic */}
         <div id='takes-round' className='flex items-center gap-x-2'>
           {props.winner === 'x' ? x : props.winner === 'o' ? o : ''}
           <span
@@ -44,7 +43,6 @@ const ModalEnd = (props: Props) => {
           >
             {props.winner === 'tie' ? 'Nobody wins or looses!' : 'TAKES THE ROUND'}
           </span>
-          {/* Change color when dynamic */}
         </div>
         <div
           id='buttons'
@@ -62,7 +60,7 @@ const ModalEnd = (props: Props) => {
             className='h-full p-[16px] rounded-lg text-greenDark bg-orangeDark shadow-orange hover:bg-orangeLight'
             onClick={nextRoundHandler}
           >
-            <span>NEXT ROUND INOP</span>
+            <span>NEXT ROUND</span>
           </div>
         </div>
       </div>
