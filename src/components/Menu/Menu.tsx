@@ -85,6 +85,9 @@ const Menu = (props: Props) => {
       >
         <span className='uppercase'>New Game (VS Player)</span>
       </div>
+      <div className='select-none w-[full] h-[56px] flex justify-center items-center mt-[16px] hover:text-blueLight'>
+        <a href="https://github.com/chocolateflight" target="_blank" rel="noopener noreferrer">Visit my GitHub</a>
+      </div>
     </div>
   );
 };
